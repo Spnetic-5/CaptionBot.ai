@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CaptionBot.ai</title>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/app.css') }}">
+</head>
+
+<body>
+<center>
+<header class="navbar">
+  <form action="/upload" method="post" enctype="multipart/form-data" >
+      <span class="btn btn-default btn-file">
+        Browse <input type="file" name="image">
+      </span>
+
+    <input type="submit" value="Upload your image" class="btn btn-primary">
+  </form>
+
+</header>
+<br>
+<br>
+{% if caption %}
+<hr>
+
+<b>  Uploaded Image :</b>
+<br>
+
+<img src="{{ image_path }}" alt="Uploaded Image"  width="500">
+
+<br>
+
+<hr>
+<div class="box">
+  <b style="text-align: center; color:green">The Caption for an Image is :</b> <span>{{ caption }}</span>
+</div>
+<hr>
+{% endif %}
+</center>
+</body>
+</html>
